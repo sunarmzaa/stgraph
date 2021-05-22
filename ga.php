@@ -70,7 +70,7 @@
     chart.yScale().stackMode('percent');
 chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
   // chart.labels().format('{%value}{decimalsCount:0}%').fontColor('white')
-  chart.labels().format('{%value}{decimalsCount:0}').fontColor('black')
+  chart.labels().format('{%value}{decimalsCount:0} คน').fontColor('black')
 
     var crosshair = chart.crosshair();
     // turn on the crosshair
@@ -108,7 +108,7 @@ chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
 
     // create third series with mapped data
     series = chart.bar(seriesData_3);
-    setupSeries(series, 'คงเหลือ', '#7B8C96 0.5');
+    setupSeries(series, 'คงเหลือ', '#33CCFF 0.5');
 
     // create fourth series with mapped data
     series = chart.bar(seriesData_2);
@@ -116,7 +116,7 @@ chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
 
         // create fourth series with mapped data
     series = chart.bar(seriesData_1);
-    setupSeries(series, 'จำนวนประชากรทั้งหมด' , '#D13B1D 0.8');
+    setupSeries(series, 'จำนวนประชากรทั้งหมด' , '#98FB98 0.8');
     // set interactivity and toolitp settings
     // chart.interactivity().hoverMode('by-x');
     // chart.tooltip().displayMode('union');
