@@ -18,8 +18,8 @@
   <style>html,
 body,
 #container {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
   margin: 50px;
   padding: 0;
 }</style>
