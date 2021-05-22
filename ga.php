@@ -62,15 +62,30 @@
 
     // create bar chart
     var chart = anychart.bar();
+    // var chart = anychart.column();
 
     // turn on chart animation
-    chart.animation(true).barGroupsPadding(0.5);
+    chart.animation(true).barGroupsPadding(0.5);  //ระยะห่างบนล่างกราฟแต่ละ ต. 0.5
 
     // force chart to stack values by Y scale.
     chart.yScale().stackMode('percent');
-chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
+  // chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
   // chart.labels().format('{%value}{decimalsCount:0}%').fontColor('white')
-  chart.labels().format('{%value}{decimalsCount:0} คน').fontColor('black')
+  // chart.labels().format('{%value}{decimalsCount:0} คน').fontColor('black') //ค่าแสดงในกราฟ
+  chart.labels()
+            .enabled(true)
+            .position('center-bottom')
+            .anchor('center-bottom')
+            .format('{%value}{decimalsCount:0} คน')
+            .fontColor('black');
+  
+  
+    chart.hovered().labels(true);
+  
+
+    chart.tooltip()
+            .displayMode('union')
+            .valuePrefix('$');
 
     var crosshair = chart.crosshair();
     // turn on the crosshair
@@ -84,14 +99,15 @@ chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
     // set chart title text settings
     chart.title('การลงทะเบียนของประชาการจังหวัดภูเก็ตแยกตามตำบล');
     chart.title().padding([0, 0, 10, 0]);
+    chart.title().fontSize(22).fontColor('#000000');
 
     // set yAxis labels formatting, force it to add % to values
-    chart.yAxis(0).labels().format("{%Value}%");
+    chart.yAxis(0).labels().format("{%Value}%").fontSize(15).fontColor('#000000');
 
     // helper function to setup label settings for all series
     var setupSeries = function (series, name, color) {
         series.name(name)
-                 .stroke('1 #fff 1')
+                 .stroke('1 #000000 1')  //สีเส้นขอบแบ่งกราฟ
                 .fill(color);
     };
 
@@ -108,7 +124,7 @@ chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
 
     // create third series with mapped data
     series = chart.bar(seriesData_3);
-    setupSeries(series, 'คงเหลือ', '#33CCFF 0.5');
+    setupSeries(series, 'คงเหลือ', '#33CCFF 0.8');
 
     // create fourth series with mapped data
     series = chart.bar(seriesData_2);
@@ -125,13 +141,15 @@ chart.labels().enabled(true).position("center-center").offsetX(30).offsetY(-15);
     chart.legend()
             .enabled(true)
             .fontSize(22)
-            .padding([0, 0, 20, 0]);
+            .padding([0, 0, 20, 0])
+            .fontColor('#000000');
 
     // set container id for the chart
     chart.container('container');
-	 var axisLabels = chart.xAxis().labels();
+	 var axisLabels = chart.xAxis().labels().fontSize(13);
   axisLabels.useHtml(true);
   axisLabels.format("<span style='color:black;'>{%value}</span>");
+  
     // initiate chart drawing
     chart.draw();
 });</script>
